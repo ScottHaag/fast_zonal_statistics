@@ -1,5 +1,7 @@
 # fast_zonal_statistics
 
+## Step 1 Unzip the file data/data.zip file
+
 ## Containerized Version
 # ## To Run the container
 
