@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+
+  python:
+    build:
+      context: .
+      dockerfile: fzs.dockerFile
+
+    ports:
+      - "8888:8888"
+
+    volumes:
+      - .:/opt/app
+
+    container_name: fzs
+

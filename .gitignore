@@ -1,5 +1,6 @@
 .ipynb_checkpoints
-data/*
+data/nlcd_2011_impervious_2011_edition_2014_10_cbw*
+data_old/*
 *.gdbindexes
 *.qpj
 Watershed/wb.cpg
