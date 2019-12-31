@@ -14,7 +14,7 @@
 
     - Connect with http://127.0.0.1:8888/?token=yourtokenhere
 
-    - Open and run demo.ipynb
+    - Open and run FastZonalStastics.ipynb
 
 ## To start the notebook in a windows machine
 ## 1_ open command prompt
