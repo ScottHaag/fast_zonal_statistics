@@ -1,17 +1,24 @@
-version: "3"
+version: "2.4"
 
 services:
 
   python:
-    build:
+    build: 
       context: .
-      dockerfile: fzs.dockerFile
+      dockerfile: DockerFile.fzs
 
     ports:
       - "8888:8888"
 
     volumes:
       - .:/opt/app
-
     container_name: fzs
+
+    tty: true
+    networks:
+      - network_fzs
+
+networks:
+  network_fzs:
+    name: network_fzs
 
