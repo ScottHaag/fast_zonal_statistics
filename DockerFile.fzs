@@ -1,15 +1,28 @@
+# The code to install gdal is is taken from 
+# https://github.com/thinkWhere/GDAL-Docker
+FROM python:3.6-stretch
 
-from python:3.7.4-buster
-
-RUN apt-get update -y
+RUN apt-get update
+RUN apt-get upgrade -y
 
 RUN pip3 install    \
                     "rasterstats==0.13.0" \
                     jupyter \
-                    jupyterlab 
+                    jupyterlab \
+                    matplotlib \
+                    numpy 
 
-RUN apt-get update &&\
-    apt-get install -y binutils libproj-dev gdal-bin
+RUN echo deb http://ftp.uk.debian.org/debian unstable main contrib non-free >> /etc/apt/sources.list
+RUN apt-get update
+
+RUN apt-get remove -y binutils
+
+RUN apt-get -t unstable install -y libgdal-dev g++
+
+ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
+ENV C_INCLUDE_PATH=/usr/include/gdal
+
+RUN pip3 install GDAL==$(gdal-config --version | awk -F'[.]' '{print $1"."$2}')
 
 WORKDIR /opt/app
 ENV PYTHONPATH "${PYTHONPATH}:/opt/app"
