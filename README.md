@@ -2,8 +2,8 @@
 
 ## Step 1 Unzip the file data/data.zip file
 
-## Containerized Version
-# ## To Run the container
+## Make sure docker has enough main memory or the kernel will die using the rasterstats library
+## Set it at at least 14 gb
 
 1) docker-compose -f Fast_Zonal_Statistics.yml up --build
 
